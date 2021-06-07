@@ -3,10 +3,13 @@ const mongoose = require("mongoose");
 const connection = async () => {
   try {
     await mongoose
-      .connect(process.env.DB_URL, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      })
+      .connect(
+        "mongodb+srv://Munsif___69:Munsif___69@cluster0.2gsyq.mongodb.net/mern_ecommerce_app?retryWrites=true&w=majority",
+        {
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+        }
+      )
       .then(() => console.log(`Connection to MongoDb Atlas Success`))
       .catch((error) => {
         console.error(`Connection to Db fail`);
