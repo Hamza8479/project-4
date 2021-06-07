@@ -1,5 +1,6 @@
-import React,{useState} from 'react'
-import {useHistory } from 'react-router-dom'
+import React,{useState} from 'react';
+import {useHistory } from 'react-router-dom';
+import './login.css'
 function Login() {
     const history=useHistory();
     const [formFields, setformFields] = useState({
@@ -42,9 +43,9 @@ function Login() {
     return (
         <div classname="loginPage">
             <form action="">
-                <input type="text" onChange={getChange} name="email" value={formFields.email}/>
-                <input type="text" onChange={getChange} name="pass" value={formFields.pass}/>
-                <button onClick={submitData} style={{width:"30px",height:"20px"}}>Login</button>
+               Email <input type="text" onChange={getChange} name="email" value={formFields.email}/> 
+                Password<input type="text" onChange={getChange} name="pass" value={formFields.pass}/>
+                <button onClick={submitData} style={{width:"50px",height:"20px"}}>Login</button>
                 </form>
         </div>
     )
