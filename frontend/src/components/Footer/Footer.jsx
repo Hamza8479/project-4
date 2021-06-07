@@ -9,7 +9,7 @@ function Footer() {
         <i class="fab fa-facebook"></i>
       </div>
       <div className="F__right">
-        <h3> &copy; Munsif Ali Misri {new Date().getFullYear()}</h3>
+        <h3> &copy; Hamza Zaman {new Date().getFullYear()}</h3>
       </div>
     </div>
   );
