@@ -1,5 +1,4 @@
 ###  <h1 align="center">MERN ECOMMERCE APP 🆒</h1>
-### <h1 align="center"> View Deployment 😄</h1>
 ![lp1](https://user-images.githubusercontent.com/69424550/121003045-7f597600-c7a6-11eb-90c1-c240ded99c8e.PNG)
 ![lp2](https://user-images.githubusercontent.com/69424550/121003055-82546680-c7a6-11eb-8b64-af7eeca7206d.PNG)
 ![lp3](https://user-images.githubusercontent.com/69424550/121003061-84b6c080-c7a6-11eb-931f-070f0217a4ec.PNG)
