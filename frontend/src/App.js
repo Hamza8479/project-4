@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Backdrop from "./components/Backdrop/Backdrop";
 import Footer from "./components/Footer/Footer";
 import Sidedrawer from "./components/Sidedrawer/Sidedrawer";
+import Register from "./components/Register/Register";
 
 function App() {
   const [sideMenuToggle, setSideMenuToggle] = useState(false);
@@ -30,10 +31,11 @@ function App() {
 
       <main>
         <Switch>
-          <Route exact path="/" component={HomeScreen} />
+          <Route exact path="/products" component={HomeScreen} />
           <Route exact path="/product/:id" component={ProductScreen} />
           <Route exact path="/cart" component={CartScreen} />
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/" component={Login} />
+          <Route exact path="/register" component={Register} />
         </Switch>
       </main>
       <Footer />

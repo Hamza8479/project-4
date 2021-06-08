@@ -28,7 +28,7 @@ function Sidedrawer({ show, click }) {
           </NavLink>
         </li>
         <li>
-          <NavLink exact to="/">
+          <NavLink exact to="/products">
             Shop
           </NavLink>
         </li>

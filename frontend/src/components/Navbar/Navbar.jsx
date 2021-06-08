@@ -18,7 +18,7 @@ function Navbar({ click }) {
       <div className="navbar__links">
         <ul className="navbar__ul">
           <li>
-            <NavLink exact to="/" activeClassName="activeLink">
+            <NavLink exact to="/products" activeClassName="activeLink">
               Shop
             </NavLink>
           </li>

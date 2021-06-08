@@ -33,7 +33,7 @@ function CartScreen() {
         {cartItems.length === 0 ? (
           <div>
             <h2>Cart is Empty You hav'nt added any item to your Cart</h2>
-            <NavLink to="/" className="goShopping">
+            <NavLink to="/products" className="goShopping">
               Go Shopping!
             </NavLink>
           </div>

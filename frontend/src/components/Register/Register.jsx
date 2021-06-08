@@ -1,15 +1,15 @@
-import React,{useState} from 'react';
-import {useHistory } from 'react-router-dom';
-
+import React,{useState} from 'react'
+import {useHistory} from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
-function Login() {
+function Register() {
     const history=useHistory();
     const [formFields, setformFields] = useState({
+        name:"",
         email:"",
-        pass:""
+        pass:"",
+        cPass:""
     })
     function getChange(e) {
-        
         const fieldName=e.target.name;
         const fieldValue=e.target.value;
         setformFields({
@@ -17,19 +17,23 @@ function Login() {
             [fieldName]:fieldValue
         })
     }
-    async function checkUserForLogin(){
-        const response =await fetch("/user/login",{
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  email:formFields.email,
-                  pass:formFields.pass,
-                }),
+    async function getUserData() {
+        const {name,email,pass,cPass}=formFields;
+        const response =await fetch("/user/register",{
+            method:"POST",
+            headers:{
+                "Content-Type": "application/json",
+            },
+            body:JSON.stringify({
+                name,
+                email,
+                pass,
+                cPass
+            })
         })
-        const data = await response.json();
-        if([404,500].includes(response.status) || typeof data === "undefined"){
+        const data=await response.json();
+        console.log(data.message)
+        if([404,500,400].includes(response.status) || typeof data === "undefined"){
             toast.error(`${data.message}`, {
                 position: "top-center",
                 autoClose: 5000,
@@ -41,12 +45,12 @@ function Login() {
               });
         }
         else{
-            history.push("/products")
+            history.push("/")
         }
     }
-    function submitData(e){
+    function submitBtn(e) {
         e.preventDefault();
-       checkUserForLogin();
+        getUserData();
     }
     const style ={
         display:"grid",
@@ -55,7 +59,7 @@ function Login() {
         height:"81vh",
         width:"100vw",
         padding:"10px",
-        gridGap:"0px", 
+        gridGap:"20px", 
     backgroundImage: "url(https://store.hp.com/app/assets/images/uploads/prod/25-best-hd-wallpapers-laptops159561982840438.jpg)",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat"
@@ -83,17 +87,19 @@ function Login() {
         cursor:"pointer"
     }
     return (
-        <div style={style} classname="loginPage">
+        <div style={style} className="registerPage">
             <form action="">
-            <div> <h1 style={{color:"white"}}>Login</h1> </div>
-              <input style={inpt} type="text" onChange={getChange} name="email" value={formFields.email} placeholder='Email'/>  <br /> 
-               <input style={inpt} type="text" onChange={getChange} name="pass" value={formFields.pass} placeholder='Password'/> <br /> 
-                <button style={btn} onClick={submitData}> <b>Login</b> </button>
-                <button style={btn} onClick={()=> history.push("/register")}> <b>Register</b> </button>
+            <div> <h1 style={{color:"white"}}>Registration</h1> </div>
+                <input style={inpt} type="text" name="name" onChange={getChange} value={formFields.name} placeholder='Enter Name' /> <br />
+                <input style={inpt} type="text" name="email" onChange={getChange} value={formFields.email} placeholder='Enter Email'/> <br />
+                <input style={inpt} type="text" name="pass" onChange={getChange} value={formFields.pass} placeholder='Enter Password'/> <br />
+                <input style={inpt} type="text" name="cPass" onChange={getChange} value={formFields.cPass} placeholder='Confirm Password'/> <br />
+                <button style={btn} onClick={submitBtn}> <b>  Register </b></button>
+                <button style={btn} onClick={()=> history.push("/")}> <b>Login</b> </button>
             </form>
-            <ToastContainer />
+            <ToastContainer/>
         </div>
     )
 }
 
-export default Login
+export default Register
